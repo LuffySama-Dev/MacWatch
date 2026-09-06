@@ -109,6 +109,14 @@ DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer swift test
 
 For manual checks, use only accounts, devices, and private networks you control. Do not expose a test SSH account or temporary listener to the public internet. Follow the [benign validation checklist](Docs/MANUAL_VALIDATION.md).
 
+With MacWatch already running, generate safe startup-change and loopback-listener events with:
+
+```sh
+./Scripts/generate-test-telemetry.sh
+```
+
+You may pass two different high ports, for example `./Scripts/generate-test-telemetry.sh 53123 53124`. The script creates only a disabled test plist and loopback-only listeners, waits for MacWatch's polling intervals, and removes them before exiting. It does not toggle Remote Login, edit SSH keys, or put the Mac to sleep.
+
 ## Removal
 
 1. Quit MacWatch and delete the app/build product.
@@ -123,6 +131,7 @@ For manual checks, use only accounts, devices, and private networks you control.
 - `MacWatchSelfTest`: benign local self-test executable
 - `MacWatchCoreTests`: unit and regression tests
 - `MacWatchEndpointSecurity`: retained, disabled future SSH-authentication implementation
+- `Scripts/generate-test-telemetry.sh`: benign startup and listening-endpoint telemetry generator
 
 ## Documentation
 
