@@ -1,0 +1,16 @@
+.DS_Store
+.build/
+.swiftpm/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+
+# Local credentials and signing material
+.env
+.env.*
+*.p12
+*.cer
+*.mobileprovision
+*.provisionprofile
